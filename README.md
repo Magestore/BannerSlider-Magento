@@ -1,0 +1,1 @@
+# BannerSlider-Magento

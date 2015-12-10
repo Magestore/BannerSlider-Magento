@@ -1,0 +1,36 @@
+<?php 
+/**
+ * Magestore
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the Magestore.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.magestore.com/license-agreement.html
+ * 
+ * DISCLAIMER
+ * 
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category 	Magestore
+ * @package 	Magestore_Storelocator
+ * @copyright 	Copyright (c) 2012 Magestore (http://www.magestore.com/)
+ * @license 	http://www.magestore.com/license-agreement.html
+ */
+
+ /** 
+ *  
+ */
+?>
+<?php if(!$this->getRequest()->getParam('id') && $this->getRequest()->getParam('active_tab')):?>
+<div id="messages" style="">
+    <ul class="messages"><li class="success-msg">
+            <ul><li><span><?php echo $this->__('Please check box to choose banners') ?></span></li>
+            </ul></li>
+    </ul></div>
+<?php endif; ?>
+<button id="" type="button" class="scalable add" style=""  alt="<?php echo $this->__('Add banner') ?>" title="<?php echo $this->__('Add banner') ?>" onclick="window.open('<?php echo $this->getUrlAddBanner();?>', '_blank', 'scrollbars=yes, resizable=yes,width=600,height=600');" href="javascript:void(0);"
+    <span>Add Banner</span>    
+</button>
+

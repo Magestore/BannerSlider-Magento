@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magestore
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the Magestore.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.magestore.com/license-agreement.html
+ * 
+ * DISCLAIMER
+ * 
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category 	Magestore
+ * @package 	Magestore_Bannerslider
+ * @copyright 	Copyright (c) 2012 Magestore (http://www.magestore.com/)
+ * @license 	http://www.magestore.com/license-agreement.html
+ */
+-->
+<config>
+    <menu>
+        <bannerslider module="bannerslider" translate="title">
+            <title>Banner Slider</title>
+            <sort_order>71</sort_order>               
+            <children>
+                <bannerslider module="bannerslider" translate="title">
+                    <title>Manage Sliders</title>
+                    <sort_order>1</sort_order>
+                    <action>adminhtml/bannerslider_bannerslider</action>
+                </bannerslider>
+                <banner module="bannerslider" translate="title">
+                    <title>Manage Banners</title>
+                    <sort_order>2</sort_order>
+                    <action>adminhtml/bannerslider_banner/index</action>
+                </banner>
+                <standard_slider module="bannerslider" translate="title">
+                    <title>Preview Slider Styles</title>
+                    <sort_order>3</sort_order>
+                    <action>adminhtml/bannerslider_standardslider</action>
+                </standard_slider>
+                <banner_report module="bannerslider" translate="title">
+                    <title>Report Banners</title>                   
+                    <sort_order>4</sort_order>
+                    <children>
+                        <banner_report_all module="bannerslider" translate="title">
+                            <title>Per Slider</title>
+                            <action>adminhtml/bannerslider_report</action>
+                            <sort_order>1</sort_order>
+                        </banner_report_all>
+                        <banner_report_only module="bannerslider" translate="title">
+                            <title>All Sliders</title>
+                            <action>adminhtml/bannerslider_report/banner</action>
+                            <sort_order>2</sort_order>
+                        </banner_report_only>
+                    </children>
+                </banner_report>
+                <settings module="bannerslider" translate="title">
+                    <title>Settings</title>
+                    <sort_order>1000</sort_order>
+                    <action>adminhtml/system_config/edit/section/bannerslider</action>
+                </settings>
+            </children>
+        </bannerslider>
+    </menu>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <bannerslider module="bannerslider" translate="title">
+                                        <title>Bannerslider</title>
+                                        <sort_order>71</sort_order>									
+                                    </bannerslider>								
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                    <bannerslider module="bannerslider" translate="title">
+                        <title>Bannerslider</title>
+                        <sort_order>71</sort_order>               
+                        <children>
+                            <bannerslider module="bannerslider" translate="title">
+                                <title>Manage Sliders</title>
+                                <sort_order>0</sort_order>
+                            </bannerslider>
+                            <banner module="bannerslider" translate="title">
+                                <title>Manage Banners</title>
+                                <sort_order>2</sort_order>							
+                            </banner>
+                            <standard_slider module="bannerslider" translate="title">
+                                <title>Preview Slider Styles</title>
+                                <sort_order>3</sort_order>							
+                            </standard_slider>
+                            <banner_report module="bannerslider" translate="title">
+                                <title>Report Banners</title>                   
+                                <sort_order>4</sort_order>
+                                <children>
+                                    <banner_report_all module="bannerslider" translate="title">
+                                        <title>Per Slider</title>                                      
+                                        <sort_order>1</sort_order>
+                                    </banner_report_all>
+                                    <banner_report_only module="bannerslider" translate="title">
+                                        <title>All Sliders</title>                                        
+                                        <sort_order>2</sort_order>
+                                    </banner_report_only>
+                                </children>
+                            </banner_report>
+                            <settings module="bannerslider" translate="title">
+                                <title>Settings</title>
+                                <sort_order>1000</sort_order>
+                            </settings>
+                        </children>
+                    </bannerslider>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

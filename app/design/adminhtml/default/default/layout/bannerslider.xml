@@ -1,0 +1,238 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magestore
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the Magestore.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.magestore.com/license-agreement.html
+ * 
+ * DISCLAIMER
+ * 
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category 	Magestore
+ * @package 	Magestore_Bannerslider
+ * @copyright 	Copyright (c) 2012 Magestore (http://www.magestore.com/)
+ * @license 	http://www.magestore.com/license-agreement.html
+ */
+-->
+<layout version="0.1.0">
+    <adminhtml_bannerslider_bannerslider_index>
+        <reference name="content">
+            <block type="bannerslider/adminhtml_bannerslider" name="bannerslider" />
+        </reference>
+    </adminhtml_bannerslider_bannerslider_index>
+    
+    <adminhtml_bannerslider_bannerslider_edit>
+        <reference name="head">
+            <action method="setCanLoadTinyMce">
+                <flag>1</flag>
+            </action>
+            <action method="addJs">
+                <script>mage/adminhtml/variables.js</script>
+            </action>
+            <action method="addJs">
+                <script>mage/adminhtml/wysiwyg/widget.js</script>
+            </action>
+            <action method="addJs">
+                <script>lib/flex.js</script>
+            </action>
+            <action method="addJs">
+                <script>lib/FABridge.js</script>
+            </action>
+            <action method="addJs">
+                <script>mage/adminhtml/flexuploader.js</script>
+            </action>
+            <action method="addJs">
+                <script>mage/adminhtml/browser.js</script>
+            </action>
+            <action method="addJs">
+                <script>prototype/window.js</script>
+            </action>
+            <action method="addItem">
+                <type>js_css</type>
+                <name>prototype/windows/themes/default.css</name>
+            </action>
+            <action method="addItem">
+                <type>js_css</type>
+                <name>prototype/windows/themes/magento.css</name>
+            </action>
+            <action method="addItem">
+                <type>js</type>
+                <name>mage/adminhtml/wysiwyg/tiny_mce/setup.js</name>
+                <params/>
+            </action>
+            <action method="addItem">
+                <type>js</type>
+                <name>tiny_mce/tiny_mce.js</name>
+                <params/>
+            </action>
+            <action method="addJs">
+                <script>magestore/bannerslider/tooltip.js</script>
+            </action>
+            <action method="addJs">
+                <script>magestore/bannerslider/prototip.js</script>
+            </action>
+        </reference>
+    </adminhtml_bannerslider_bannerslider_edit>
+    
+    <adminhtml_bannerslider_bannerslider_custom>        
+        <block type="core/text_list" name="root">           
+            <block type="bannerslider/adminhtml_addbutton" name="bannerslider.add" template="bannerslider/addbutton.phtml"/> 
+            <block type="bannerslider/adminhtml_bannerslider_edit_tab_custom" name="slider.edit.tab.custom"/>                                          
+            <block type="adminhtml/widget_grid_serializer" name="related_grid_serializer">                
+                <action method="initSerializerBlock">
+                    <grid_block_name>slider.edit.tab.custom</grid_block_name>
+                    <data_callback>getSelectedSliderBanners</data_callback>
+                    <hidden_input_name>slider_banner</hidden_input_name>
+                    <reload_param_name>banner</reload_param_name>
+                </action>                
+                <action method="addColumnInputName">
+                    <input_name>order_banner_slider</input_name>
+                </action>
+            </block>         
+        </block>                                 
+    </adminhtml_bannerslider_bannerslider_custom>
+    
+    <adminhtml_bannerslider_bannerslider_customgrid>        
+        <block type="core/text_list" name="root" output="toHtml">            
+            <block type="bannerslider/adminhtml_bannerslider_edit_tab_custom" name="slider.edit.tab.custom"/>            
+        </block>
+    </adminhtml_bannerslider_bannerslider_customgrid>
+    
+    <adminhtml_bannerslider_banner_index>
+        <reference name="head">
+            <action method="addJs">
+                <script>magestore/bannerslider/tooltip.js</script>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="adminhtml/store_switcher" name="store_switcher" as="store_switcher">
+                <action method="setUseConfirm">
+                    <params>0</params>
+                </action>
+            </block>
+            <block type="bannerslider/adminhtml_banner" name="bannerslider.banner" />
+        </reference>
+    </adminhtml_bannerslider_banner_index>
+    
+    <adminhtml_bannerslider_banner_edit>
+        <reference name="head">
+            <action method="setCanLoadTinyMce">
+                <flag>1</flag>
+            </action>
+            <action method="addJs">
+                <script>mage/adminhtml/variables.js</script>
+            </action>
+            <action method="addJs">
+                <script>mage/adminhtml/wysiwyg/widget.js</script>
+            </action>
+            <action method="addJs">
+                <script>lib/flex.js</script>
+            </action>
+            <action method="addJs">
+                <script>lib/FABridge.js</script>
+            </action>
+            <action method="addJs">
+                <script>mage/adminhtml/flexuploader.js</script>
+            </action>
+            <action method="addJs">
+                <script>mage/adminhtml/browser.js</script>
+            </action>
+            <action method="addJs">
+                <script>prototype/window.js</script>
+            </action>
+            <action method="addItem">
+                <type>js_css</type>
+                <name>prototype/windows/themes/default.css</name>
+            </action>
+            <action method="addItem">
+                <type>js_css</type>
+                <name>prototype/windows/themes/magento.css</name>
+            </action>
+            <action method="addItem">
+                <type>js</type>
+                <name>mage/adminhtml/wysiwyg/tiny_mce/setup.js</name>
+                <params/>
+            </action>
+            <action method="addItem">
+                <type>js</type>
+                <name>tiny_mce/tiny_mce.js</name>
+                <params/>
+            </action>
+        </reference>
+        <reference name="left">
+            <block type="adminhtml/store_switcher" name="store_switcher" before="-" />
+        </reference>
+    </adminhtml_bannerslider_banner_edit>
+    
+    <adminhtml_bannerslider_banner_addin>
+        <reference name="head">
+            <action method="addJs">
+                <script>varien/form.js</script>
+            </action>
+            <action method="addJs">
+                <script>prototype/validation.js</script>
+            </action>
+        </reference>
+    </adminhtml_bannerslider_banner_addin>
+    
+    <adminhtml_bannerslider_standardslider_index>
+        <reference name="content">
+            <block type="bannerslider/adminhtml_standardslider" name="bannerslider.standardslider" />
+        </reference>
+    </adminhtml_bannerslider_standardslider_index>
+    <adminhtml_bannerslider_standardslider_preview>
+        <reference name="head">
+            <action method="addJs">
+                <script>magestore/bannerslider/standardslider/content_slider_master/jquery.easing.1.3.js</script>
+            </action>
+            <action method="addJs">
+                <script>magestore/bannerslider/standardslider/content_slider_master/jquery.ennui.contentslider.js</script>
+            </action>
+            <action method="addJs">
+                <script>magestore/bannerslider/standardslider/content_slider_master/jquery.min.js</script>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="bannerslider/adminhtml_preview" name="bannerslider.standardslider" template="bannerslider/standardslider.phtml" output="toHtml"/>
+        </reference>
+    </adminhtml_bannerslider_standardslider_preview>
+    
+    <adminhtml_bannerslider_report_index>
+        <reference name="head">
+             <action method="addJs">
+                <script>magestore/bannerslider/tooltip.js</script>
+            </action>
+            <action method="addJs">
+                <script>magestore/bannerslider/prototip.js</script>
+            </action>
+        </reference>
+        <reference name="content">           
+            <block type="bannerslider/adminhtml_date" name="bannerslider.report.date" template="bannerslider/date.phtml"/>
+            <block type="bannerslider/adminhtml_report" name="bannerslider.report"/>            
+            <block type="bannerslider/adminhtml_customjs" name="bannerslider.report.customjs" template="bannerslider/customjs.phtml"/>
+        </reference>
+    </adminhtml_bannerslider_report_index>
+    
+     <adminhtml_bannerslider_report_banner>
+        <reference name="head">
+             <action method="addJs">
+                <script>magestore/bannerslider/tooltip.js</script>
+            </action>
+            <action method="addJs">
+                <script>magestore/bannerslider/prototip.js</script>
+            </action>
+        </reference>
+        <reference name="content">           
+            <block type="bannerslider/adminhtml_date" name="bannerslider.report.date.banner" template="bannerslider/date.phtml"/>
+            <block type="bannerslider/adminhtml_reportbanner" name="bannerslider.report.banner"/>            
+            <block type="bannerslider/adminhtml_customjs" name="bannerslider.report.customjs.banner" template="bannerslider/customjs.phtml"/>
+        </reference>
+    </adminhtml_bannerslider_report_banner>
+    
+</layout>

@@ -1,0 +1,44 @@
+<?php
+$block_data = $this->getBlockData();
+$blocks = $block_data['block'];
+$banners = $block_data['banners'];
+$click_url = $this->getUrl('bannerslider/index/click');
+?>
+<script type="text/javascript" src="<?php echo $this->getJsUrl('magestore/bannerslider/jquery-1.7.min.js')?>"></script>
+<script type="text/javascript" src="<?php echo $this->getJsUrl('magestore/bannerslider/slider1/jquery.slider.min.js') ?>"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/magestore/bannerslider/slider1.css') ?>" />    
+    <script type="text/javascript">
+        var j1 = jQuery.noConflict();
+        j1(document).ready(function($) {
+            j1(".slider1-<?php echo $blocks['bannerslider_id'] ?>").slideshow({
+                width      : <?php echo $blocks['width'] ?>,
+                height     : <?php echo $blocks['height'] ?>,
+                transition : "<?php echo $blocks['animationB'] ?>",
+                delay      : <?php echo $blocks['slider_speed'];?>
+                
+            });
+        });
+    </script>
+    <div class="bannerslide-default-slider" style="margin: auto; margin-bottom: 10px">
+<div class="slider1-<?php echo $blocks['bannerslider_id'] ?>" >
+        <?php foreach ($banners as $banner): ?>
+            <div>
+                <a href="<?php echo $banner['click_url']; ?>" target="<?php echo $this->getTarget($banner['tartget'])?>" style="display:block;" onclick="bannerClicks('<?php echo $banner['banner_id']?>','<?php echo $blocks['bannerslider_id'] ?>')"><img src="<?php echo $this->getBannerImage($banner['image']); ?>" title="<?php echo $banner['name']; ?>" alt="<?php echo $banner['image_alt']; ?>" width="<?php echo $blocks['width'] ?>" height="<?php echo $blocks['height'] ?>"/></a>
+            </div>
+            <?php endforeach; ?>    
+</div>
+</div>
+    <script type="text/javascript">
+        function bannerClicks(id_banner,slider_id){
+		var click_url = '<?php echo $click_url;?>';
+		banner_id = id_banner;
+		new Ajax.Request(click_url,{
+			method: 'post',
+			parameters:{id_banner: banner_id,slider_id:slider_id},
+			onFailure: '',
+			onSuccess: ''
+			
+		});
+		
+	}
+    </script>

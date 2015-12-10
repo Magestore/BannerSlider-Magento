@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magestore
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the Magestore.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.magestore.com/license-agreement.html
+ * 
+ * DISCLAIMER
+ * 
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category 	Magestore
+ * @package 	Magestore_Bannerslider
+ * @copyright 	Copyright (c) 2012 Magestore (http://www.magestore.com/)
+ * @license 	http://www.magestore.com/license-agreement.html
+ */
+-->
+<config>
+    <modules>
+        <Magestore_Bannerslider>
+            <version>3.0.1</version>
+        </Magestore_Bannerslider>
+    </modules>
+    <frontend>
+        <routers>
+            <bannerslider>
+                <use>standard</use>
+                <args>
+                    <module>Magestore_Bannerslider</module>
+                    <frontName>bannerslider</frontName>
+                </args>
+            </bannerslider>
+        </routers>
+        <layout>
+            <updates>
+                <bannerslider>
+                    <file>bannerslider.xml</file>
+                </bannerslider>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <Magestore_Bannerslider>
+                    <files>
+                        <default>Magestore_Bannerslider.csv</default>
+                    </files>
+                </Magestore_Bannerslider>
+            </modules>
+        </translate>
+    </frontend>
+    <admin>
+        <routers>
+            <adminhtml> 
+                <args> 
+                    <modules> 
+                        <Magestore_Bannerslider after="Mage_Adminhtml">Magestore_Bannerslider_Adminhtml</Magestore_Bannerslider>
+                    </modules> 
+                </args> 
+            </adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+        <layout>
+            <updates>
+                <bannerslider>
+                    <file>bannerslider.xml</file>
+                </bannerslider>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <Magestore_Bannerslider>
+                    <files>
+                        <default>Magestore_Bannerslider.csv</default>
+                    </files>
+                </Magestore_Bannerslider>
+            </modules>
+        </translate>
+    </adminhtml>   
+    <global>
+        <models>
+            <bannerslider>
+                <class>Magestore_Bannerslider_Model</class>
+                <resourceModel>bannerslider_mysql4</resourceModel>
+            </bannerslider>
+            <bannerslider_mysql4>
+                <class>Magestore_Bannerslider_Model_Mysql4</class>
+                <entities>
+                    <bannerslider>
+                        <table>bannerslider_slider</table>
+                    </bannerslider>
+                    <banner>
+                        <table>bannerslider_banner</table>
+                    </banner>
+                    <value>
+                        <table>bannerslider_value</table>
+                    </value>
+                    <report>
+                        <table>bannerslider_report</table>
+                    </report>
+                </entities>
+            </bannerslider_mysql4>
+        </models>
+        <resources>
+            <bannerslider_setup>
+                <setup>
+                    <module>Magestore_Bannerslider</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </bannerslider_setup>
+            <bannerslider_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </bannerslider_write>
+            <bannerslider_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </bannerslider_read>
+        </resources>
+        <blocks>
+            <bannerslider>
+                <class>Magestore_Bannerslider_Block</class>
+            </bannerslider>
+        </blocks>
+        <helpers>
+            <bannerslider>
+                <class>Magestore_Bannerslider_Helper</class>
+            </bannerslider>
+        </helpers>
+        <!-- <events>
+             			<controller_action_predispatch>
+                    				<observers>
+                           					<bannerslider_observers>
+                                  						<class>bannerslider/observer</class>
+                                  						<method>controllerActionPredispatch</method>
+                           					</bannerslider_observers>
+                    				</observers>
+             			</controller_action_predispatch>
+      		</events> -->
+    </global>
+    <default>
+        <bannerslider>
+            <general>
+                <enable>1</enable>
+            </general>
+        </bannerslider>
+    </default>
+</config>

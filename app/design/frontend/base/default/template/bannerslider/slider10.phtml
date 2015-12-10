@@ -1,0 +1,47 @@
+<?php
+$block_data = $this->getBlockData();
+$blocks = $block_data['block'];
+$banners = $block_data['banners'];
+$click_url = $this->getUrl('bannerslider/index/click');
+?>
+<script type="text/javascript" src="<?php echo $this->getJsUrl('magestore/bannerslider/jquery-1.7.min.js') ?>"></script>
+<script src="<?php echo $this->getJsUrl('magestore/bannerslider/jquery.flexslider.js') ?>"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/magestore/bannerslider/flexslider.css') ?>" media="all" />
+<script type="text/javascript">   
+    // Can also be used with $(document).ready()
+    var j10 = jQuery.noConflict();
+    j10(document).ready(function($) {
+        j10('.flexslider-10-<?php echo $blocks['bannerslider_id'] ?>').flexslider({
+            animation: "slide",
+            animationLoop: true,
+            itemWidth: 210,
+			itemMargin: 5,
+			minItems: 2,
+			maxItems: 4         
+        });
+    });
+</script>
+<div class="flexslider flexslider-10-<?php echo $blocks['bannerslider_id'] ?>">
+    <ul class="slides"> 
+        <?php foreach ($banners as $banner): ?>
+            <li style="margin-right:5px;">
+                <a href="<?php echo $banner['click_url']?>" target="<?php echo $this->getTarget($banner['tartget'])?>" style="display:block;" onclick="bannerClicks('<?php echo $blocks['bannerslider_id'] ?>','<?php echo $blocks['bannerslider_id'] ?>')"><img alt="<?php echo $banner['image_alt'];?>" src="<?php echo $this->getBannerImage($banner['image']); ?>"/></a>
+            </li>
+        <?php endforeach; ?>        
+        <!-- items mirrored twice, total of 12 -->
+    </ul>
+</div>
+<script type="text/javascript">
+	function bannerClicks(id_banner,id_slider){
+		var click_url = '<?php echo $click_url;?>';
+		banner_id = id_banner;
+		new Ajax.Request(click_url,{
+			method: 'post',
+			parameters:{id_banner: banner_id, slider_id:id_slider},
+			onFailure: '',
+			onSuccess: ''
+			
+		});
+		
+	}
+</script>

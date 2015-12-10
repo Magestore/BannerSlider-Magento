@@ -1,0 +1,112 @@
+<?php
+/**
+ * Magestore
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the Magestore.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.magestore.com/license-agreement.html
+ * 
+ * DISCLAIMER
+ * 
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category 	Magestore
+ * @package 	Magestore_Bannerslider
+ * @copyright 	Copyright (c) 2012 Magestore (http://www.magestore.com/)
+ * @license 	http://www.magestore.com/license-agreement.html
+ */
+/**
+ * bannerslider template
+ * 
+ * @see Magestore_Bannerslider_Block_Bannerslider
+ */
+?>
+<?php
+$result = $this->getBlockData();
+$block = $result['block'];
+$banners = $result['banners'];
+$banner_ids = array();
+$banner_note_ids = array();
+$url = $this->getUrl('bannerslider/index/impress');
+?>
+<?php if (count($banners) && count($block->getData())): ?>
+    <?php if ($block->getPosition() == 'pop-up'): ?>
+        <?php echo $this->returntemplateSlider("11", $result) ?>
+        <?php
+        $banner_popup_id = $banners[0]["banner_id"];
+        $slider_popup_id = $block['bannerslider_id'];
+        ?>
+        <script type="text/javascript">
+            Event.observe(window, 'load', function() {
+                banner_popup_id = '<?php echo $banner_popup_id; ?>';
+                slider_id = '<?php echo $slider_popup_id ?>';
+                imp_url = '<?php echo $url; ?>';
+                new Ajax.Request(imp_url, {
+                    method: 'post',
+                    parameters: {banner_popup_id: banner_popup_id, slider_id: slider_id},
+                    onFailure: '',
+                    onSuccess: ''
+
+                });
+            });
+        </script>
+    <?php elseif ($block->getPosition() == 'note-allsite'): ?>
+        <?php echo $this->returntemplateSlider("12", $result) ?>
+        <?php
+        foreach ($banners as $banner) {
+            $banner_note_ids[$banner["banner_id"]] = $banner["banner_id"];
+        }
+        ?>
+        <script type="text/javascript">
+            Event.observe(window, 'load', function() {
+                banner_ids = '<?php echo implode(",", $banner_note_ids); ?>';
+                slider_id = '<?php echo $block['bannerslider_id'];?>';
+                imp_url = '<?php echo $url; ?>';
+                new Ajax.Request(imp_url, {
+                    method: 'post',
+                   parameters:{banner_ids: banner_ids, slider_id:slider_id},
+                    onFailure: '',
+                    onSuccess: ''
+
+                });
+            });
+        </script>
+    <?php else: ?>
+        <?php if ($block['show_title'] == 0): ?>
+            <div class="magestore-bannerslider-title" style="font: bold 12px/16px Arial, Helvetica, sans-serif;text-transform: uppercase;color: #e26703;"><strong><span><?php echo $block['title']; ?></span></strong></div>
+        <?php endif; ?>
+        <div class="magestore-bannerslider">
+            <?php if ($block->getStyleContent() == "1"): ?>
+                <div class="magestore-bannerslider-custom">
+                    <?php echo $block->getCustomCode(); ?>
+                </div>
+            <?php elseif ($block->getStyleContent() == "0"): ?>
+                <div class="magestore-bannerslider-standard">
+                    <?php echo $this->returntemplateSlider($block->getStyleSlide(), $result) ?>
+                </div>    
+            <?php endif; ?>
+        </div>
+        <?php
+        foreach ($banners as $banner) {
+            $banner_ids[$banner["banner_id"]] = $banner["banner_id"];
+        }
+        ?>
+        <script type="text/javascript">
+            Event.observe(window, 'load', function() {
+                banner_ids = '<?php echo implode(",", $banner_ids); ?>';
+                slider_id = '<?php echo $block['bannerslider_id'];?>';
+                imp_url = '<?php echo $url; ?>';
+                new Ajax.Request(imp_url, {
+                    method: 'post',
+                    parameters:{banner_ids: banner_ids, slider_id:slider_id},
+                    onFailure: '',
+                    onSuccess: ''
+
+                });
+            });
+        </script>
+    <?php endif; ?>
+<?php endif; ?>

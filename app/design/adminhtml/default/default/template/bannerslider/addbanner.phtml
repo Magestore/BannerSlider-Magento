@@ -1,0 +1,281 @@
+<?php $slider_id = Mage::app()->getRequest()->getParam('sliderid'); ?>
+<?php $banner_id = Mage::app()->getRequest()->getParam('id'); ?>
+<?php if (!$banner_id): ?>
+    <div class="entry-edit">
+        <form id="magestore-addbanner" name="magestore-addbanner" enctype="multipart/form-data" method="post" action="<?php echo Mage::getSingleton('adminhtml/url')->getUrl('*/bannerslider_banner/save/slider/check') ?>">
+            <div><input type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey(); ?>" name="form_key"/></div>
+            <div><input type="hidden" value="<?php echo $slider_id; ?>" name="bannerslider_id"/></div>
+            <div id="bannerslider_add_banner_form_section_content">
+                <div class="entry-edit">
+                    <div class="entry-edit-head">
+                        <h4 class="icon-head head-edit-form fieldset-legend"><?php echo $this->__('Banner information'); ?></h4>
+                    </div>
+                    <div id="addbanner_form" class="fieldset">
+                        <div align="left" class="hor-scroll">
+                            <table cellspacing="0" class="form-list">
+                                <tbody>
+                                    <tr>
+                                        <td class="label"><label for="name"><?php echo $this->__('Name') ?> <span class="required">*</span></label></td>
+                                        <td class="value">
+                                            <input id="name" name="name" value="" class="required-entry input-text required-entry" type="text">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label"><label for="status"><?php echo $this->__('Status') ?></label></td>
+                                        <td class="value">
+                                            <select id="status" name="status" class=" select">
+                                                <option value="0" selected="selected"><?php echo $this->__('Enabled') ?></option>
+                                                <option value="1"><?php echo $this->__('Disabled') ?></option>
+                                            </select>
+                                        </td>
+                                    </tr>                               
+                                    <tr>
+                                        <td class="label"><label for="image_alt"><?php echo $this->__('Alt Text') ?></label></td>
+                                        <td class="value">
+                                            <input id="image_alt" name="image_alt" value="" type="text" class=" input-text">            </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label"><label for="click_url"><?php echo $this->__('URL') ?> </label></td>
+                                        <td class="value">
+                                            <input id="click_url" name="click_url" value="" class="input-text" type="text">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label"><label for="image"><?php echo $this->__('Banner Image') ?></label></td>
+                                        <td class="value"><input id="image" name="image" value="" type="file" class="input-file"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label"><label for="start_time"><?php echo $this->__('Start date') ?> <span class="required">*</span></label></td>
+                                        <td class="value">
+                                            <input name="start_time" id="start_time" value="" type="text" class=" required-entry input-text" style="width:110px !important;"> <img src="<?php echo Mage::getBaseUrl('skin') . 'adminhtml/default/default/images/grid-cal.gif' ?>" alt="" class="v-middle" id="start_time_trig" title="Select Date" style="">
+                                            <script type="text/javascript">
+                                                //<![CDATA[
+                                                Calendar.setup({
+                                                    inputField: "start_time",
+                                                    ifFormat: "%Y-%m-%d",
+                                                    showsTime: false,
+                                                    button: "start_time_trig",
+                                                    align: "Bl",
+                                                    singleClick : true
+                                                });
+                                                //]]>
+                                            </script>            </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label"><label for="end_time"><?php echo $this->__('End date') ?> <span class="required">*</span></label></td>
+                                        <td class="value">
+                                            <input name="end_time" id="end_time" value="" type="text" class=" required-entry input-text" style="width:110px !important;"> <img src="<?php echo Mage::getBaseUrl('skin') . 'adminhtml/default/default/images/grid-cal.gif' ?>" alt="" class="v-middle" id="end_time_trig" title="Select Date" style="">
+                                            <script type="text/javascript">
+                                                //<![CDATA[
+                                                Calendar.setup({
+                                                    inputField: "end_time",
+                                                    ifFormat: "%Y-%m-%d",
+                                                    showsTime: false,
+                                                    button: "end_time_trig",
+                                                    align: "Bl",
+                                                    singleClick : true
+                                                });
+                                                //]]>>
+                                            </script>            </td
+                                    </tr>
+<!--                                    <tr>
+                                        <td class="label"><label for="width"><?php //echo $this->__('Width(px)') ?></label></td>
+                                        <td class="value">
+                                            <input id="width" name="width" value="0" type="text" class=" input-text">            </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label"><label for="height"><?php //echo $this->__('Height(px)') ?></label></td>
+                                        <td class="value">
+                                            <input id="height" name="height" value="0" type="text" class=" input-text">            </td>
+                                    </tr>-->
+                                    <tr>
+                                        <td class="label"><label for="tartget"><?php echo $this->__('Tartget') ?></label></td>
+                                        <td class="value">
+                                            <select id="tartget" name="tartget" class="required-entry select">
+												<option value="2"><?php echo $this->__('New Window without Browser Navigation') ?></option>
+                                                <option value="0"><?php echo $this->__('New Window with Browser Navigation') ?></option>
+                                                <option value="1"><?php echo $this->__('Parent Window with Browser Navigation') ?></option>                                                
+                                            </select>            </td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>
+                                            <div class="content-buttons form-buttons">
+                                                <button class="save" type="submit" onclick="addbannerForm.submit();">
+                                                    <span><?php echo $this->__('Save'); ?></span>
+                                                </button>
+                                                <button class="back" type="button" onclick="closeWindow();">
+                                                    <span><?php echo $this->__('Close'); ?></span>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+<?php else: ?>
+    <?php $banner = $this->getBanner($banner_id); ?>
+    <div class="entry-edit">
+        <form id="magestore-addbanner" name="magestore-addbanner" enctype="multipart/form-data" method="post" action="<?php echo Mage::getSingleton('adminhtml/url')->getUrl('*/bannerslider_banner/save/slider/check', array('id' => $banner_id)) ?>">
+            <div><input type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey(); ?>" name="form_key"/></div>
+            <div><input type="hidden" value="<?php echo $slider_id; ?>" name="bannerslider_id"/></div>
+            <div id="bannerslider_add_banner_form_section_content">
+                <div class="entry-edit">
+                    <div class="entry-edit-head">
+                        <h4 class="icon-head head-edit-form fieldset-legend"><?php echo $this->__('Banner information'); ?></h4>
+                    </div>
+                    <div id="addbanner_form" class="fieldset">
+                        <div align="left" class="hor-scroll">
+                            <table cellspacing="0" class="form-list">
+                                <tbody>
+                                    <tr>
+                                        <td class="label"><label for="name"><?php echo $this->__('Name') ?> <span class="required">*</span></label></td>
+                                        <td class="value">
+                                            <input id="name" name="name" value="<?php echo $banner->getName(); ?>" class="required-entry input-text required-entry" type="text">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label"><label for="status"><?php echo $this->__('Status') ?></label></td>
+                                        <td class="value">
+                                            <select id="status" name="status" class=" select">                                            
+                                                <?php $status = $banner->getStatus(); ?>
+                                                <?php if ($status == 0): ?>
+                                                    <option value="0" selected="selected"><?php echo $this->__('Enable') ?></option>
+                                                    <option value="1"><?php echo $this->__('Disable') ?></option>
+                                                <?php else: ?>
+                                                    <option value="0"><?php echo $this->__('Enable') ?></option>
+                                                    <option value="1" selected="selected"><?php echo $this->__('Disable') ?></option>
+                                                <?php endif; ?>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                                    
+                                    <tr>
+                                        <td class="label"><label for="image_alt"><?php echo $this->__('Alt Text') ?></label></td>
+                                        <td class="value">
+                                            <input id="image_alt" name="image_alt" value="<?php echo $banner->getImageAlt(); ?>" type="text" class=" input-text">            </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label"><label for="click_url"><?php echo $this->__('URL') ?></label></td>
+                                        <td class="value">
+                                            <input id="click_url" name="click_url" value="<?php echo $banner->getClickUrl(); ?>" class="input-text" type="text">
+                                        </td>
+                                    </tr>
+                                    <tr><td class="label"><label for="image"><?php echo $this->__('Banner Image')?></label></td>
+                                        <td class="value">
+                                            <a href="<?php echo Mage::helper('bannerslider')->getBannerImage($banner->getImage());?>" onclick="imagePreview('image_image'); return false;"><img src="<?php echo Mage::helper('bannerslider')->getBannerImage($banner->getImage());?>" id="image_image" title="<?php echo Mage::helper('bannerslider')->getPathImageForBanner($banner->getImage());?>" alt="<?php echo Mage::helper('bannerslider')->getPathImageForBanner($banner->getImage());?>" height="22" width="22" class="small-image-preview v-middle"></a> <input id="image" name="image" value="<?php echo Mage::helper('bannerslider')->getPathImageForBanner($banner->getImage());?>" type="file" class="input-file">
+                                            <span class="delete-image"><input type="checkbox" name="image[delete]" value="1" class="checkbox" id="image_delete"><label for="image_delete"><?php echo $this->__(' Delete Image') ?></label><input type="hidden" name="image[value]" value="bannerslider/k/i/kitchen_adventurer_caramel.jpg"></span></td>
+                                     </tr>
+                                     <tr>
+                                        <td class="label"><label for="start_time"><?php echo $this->__('Start date') ?> <span class="required">*</span></label></td>
+                                        <td class="value">
+                                            <input name="start_time" id="start_time" value="<?php $start = explode(" ",$banner->getStartTime()); echo $start[0];?>" type="text" class=" required-entry input-text" style="width:110px !important;"> <img src="<?php echo Mage::getBaseUrl('skin') . 'adminhtml/default/default/images/grid-cal.gif' ?>" alt="" class="v-middle" id="start_time_trig" title="Select Date" style="">
+                                            <script type="text/javascript">
+                                                //<![CDATA[
+                                                Calendar.setup({
+                                                    inputField: "start_time",
+                                                    ifFormat: "%Y-%m-%d",
+                                                    showsTime: false,
+                                                    button: "start_time_trig",
+                                                    align: "Bl",
+                                                    singleClick : true
+                                                });
+                                                //]]>
+                                            </script>            </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label"><label for="end_time"><?php echo $this->__('End date') ?> <span class="required">*</span></label></td>
+                                        <td class="value">
+                                            <input name="end_time" id="end_time" value="<?php $end=explode(" ",$banner->getEndTime()); echo $end[0] ?>" type="text" class=" required-entry input-text" style="width:110px !important;"> <img src="<?php echo Mage::getBaseUrl('skin') . 'adminhtml/default/default/images/grid-cal.gif' ?>" alt="" class="v-middle" id="end_time_trig" title="Select Date" style="">
+                                            <script type="text/javascript">
+                                                //<![CDATA[
+                                                Calendar.setup({
+                                                    inputField: "end_time",
+                                                    ifFormat: "%Y-%m-%d",
+                                                    showsTime: false,
+                                                    button: "end_time_trig",
+                                                    align: "Bl",
+                                                    singleClick : true
+                                                });
+                                                //]]>>
+                                            </script>            </td
+                                    </tr>
+<!--                                    <tr>
+                                        <td class="label"><label for="width"><?php // echo $this->__('Width(px)') ?></label></td>
+                                        <td class="value">
+                                            <input id="width" name="width" value="<?php // echo $banner->getWidth(); ?>" type="text" class=" input-text">            </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="label"><label for="height"><?php // echo $this->__('Height(px)') ?></label></td>
+                                        <td class="value">
+                                            <input id="height" name="height" value="<?php // echo $banner->getHeight(); ?>" type="text" class=" input-text">            </td>
+                                    </tr>-->
+                                    <tr>
+                                        <td class="label"><label for="tartget"><?php echo $this->__('Tartget') ?></label></td>
+                                        <td class="value">
+                                            <select id="tartget" name="tartget" class="required-entry select">                                                
+                                                <?php if($banner->getTartget() == 0):?>
+                                                <option value="0" selected="selected"><?php echo $this->__('New Window with Browser Navigation') ?></option>
+                                                <option value="1"><?php echo $this->__('Parent Window with Browser Navigation') ?></option>
+                                                <option value="2"><?php echo $this->__('New Window without Browser Navigation') ?></option>
+                                                <?php elseif($banner->getTartget() == 1):?>
+                                                <option value="0"><?php echo $this->__('New Window with Browser Navigation') ?></option>
+                                                <option value="1" selected="selected"><?php echo $this->__('Parent Window with Browser Navigation') ?></option>
+                                                <option value="2"><?php echo $this->__('New Window without Browser Navigation') ?></option>
+                                                <?php elseif($banner->getTartget() == 2):?>
+                                                <option value="0"><?php echo $this->__('New Window with Browser Navigation') ?></option>
+                                                <option value="1"><?php echo $this->__('Parent Window with Browser Navigation') ?></option>
+                                                <option value="2" selected="selected"><?php echo $this->__('New Window without Browser Navigation') ?></option>
+                                                <?php endif; ?>
+                                            </select>           
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>
+                                            <div class="content-buttons form-buttons">
+                                                <button class="save" type="submit" onclick="addbannerForm.submit();">
+                                                    <span><?php echo $this->__('Save'); ?></span>
+                                                </button>
+                                                <button class="back" type="button" onclick="closeWindow();">
+                                                    <span><?php echo $this->__('Close'); ?></span>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+<?php endif; ?>
+<script type="text/javascript">
+    //< ![CDATA[
+    var addbannerForm = new VarienForm('magestore-addbanner');
+    //]]>
+</script>
+<script type="text/javascript">
+    function closeWindow(){
+        window.opener.location.href = window.opener.location.href+'active_tab/custom/';
+        if (window.opener.progressWindow){
+            window.opener.progressWindow.close()
+        }
+        window.close();
+    }
+</script>

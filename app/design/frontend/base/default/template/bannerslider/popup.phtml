@@ -1,0 +1,47 @@
+<?php //if($this->isDisplayPopup()): ?>
+<?php $block = $this->getBlockData(); ?>
+<?php $nameImage = $block['banners'][0]['image'] ;
+    $block_data = $block['block'];
+   
+?>
+<?php $urlImage = $this->getBannerImage($nameImage); ?>
+
+<div id="magestore-bannerslider-popup" style="display: block; text-align: left;">
+  <div id="magestore-bannerslider-popup-close" title="Close"></div>
+  <?php if(!$block['block']['show_title']): ?>
+  <p style="text-transform: uppercase; color: #e26703; margin-bottom: 1px">
+        <strong><span><?php echo $block['block']['title'] ?></span></strong>
+  </p>
+  <?php endif; ?>
+  <a href="<?php echo $block['banners'][0]['click_url'] ?>" target="<?php echo $this->getTarget($block['banners'][0]['tartget'])?>" onclick="bannerClicks('<?php echo $block['banners'][0]['banner_id']?>','<?php echo $block_data['bannerslider_id']?>')" style="display:block;">
+      <img src="<?php echo $urlImage; ?>" width="<?php echo $block['block']['width'] ?>px" height="<?php echo $block['block']['height'] ?>px"/>
+  </a>
+</div>
+	<script type="text/javascript">
+		banerpopup = new Lightbox('magestore-bannerslider-popup');
+		Event.observe(window, 'load', function () {
+			banerpopup.open();
+			Event.observe('bg_fade', 'click', function () {
+				banerpopup.close();
+			}); 
+		});
+		Event.observe('magestore-bannerslider-popup-close', 'click', function () {
+			banerpopup.close();
+		}); 
+		
+		Event.observe(window, 'resize', function () { 		
+			banerpopup._centerWindow('magestore-bannerslider-popup');
+		});
+                
+        function bannerClicks(id_banner,id_slider){
+			var click_url = '<?php echo $this->getUrl('bannerslider/index/click'); ?>';
+			banner_id = id_banner;
+			new Ajax.Request(click_url,{
+				method: 'post',
+				parameters:{id_banner: banner_id,slider_id:id_slider},
+				onFailure: '',
+				onSuccess: ''	
+			});
+        }
+	</script>
+<?php //endif; ?>

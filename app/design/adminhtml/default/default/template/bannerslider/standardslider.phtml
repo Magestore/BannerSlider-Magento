@@ -1,0 +1,623 @@
+
+<!-- content_slider_master -->
+
+<link rel="stylesheet" href="<?php echo $this->getSkinUrl('css/magestore/bannerslider/flexslider.css') ?>" type="text/css" media="screen" />
+<script type="text/javascript" src="<?php echo $this->getJsUrl('magestore/bannerslider/jquery-1.7.min.js') ?>"></script>
+<script type="text/javascript" src="<?php echo $this->getJsUrl('magestore/bannerslider/jquery.flexslider.js') ?>"></script>
+<script type="text/javascript" src="<?php echo $this->getJsUrl('magestore/bannerslider/slider1/jquery.slider.min.js') ?>"></script>
+
+
+<?php
+$id_slider = $this->getRequest()->getParam('id');
+?>
+<?php
+switch ($id_slider) {
+    //Sloider1
+    case 1:
+        ?>
+        <script type="text/javascript">
+            window.resizeTo(900, 500);
+        </script>
+        <link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/magestore/bannerslider/slider1.css') ?>" /> 
+        <div class="slider" style="margin:auto">
+            <div>
+                <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_cheesecake_brownie.jpg') ?>" />
+            </div>
+
+            <div>
+                <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_lemon.jpg') ?>" />
+            </div>
+
+            <div>
+                <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_donut.jpg') ?>" />
+            </div>
+            <div>
+                <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_caramel.jpg') ?>" />
+            </div>
+        </div>
+        <script type="text/javascript">
+            jQuery(document).ready(function($) {
+                $(".slider").slideshow({
+                    width: 550,
+                    height: 325,
+                    transition: 'explode'
+                });
+            });
+        </script>
+        <?php
+        break;
+    //slider 2
+    case 2:
+        ?>
+        <script type="text/javascript">
+            window.resizeTo(900, 500);
+        </script>
+
+        <link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/magestore/bannerslider/slider2.css') ?>" /> 
+        <div class="slider" style="margin:auto">
+            <div>
+                <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_cheesecake_brownie.jpg') ?>" />
+            </div>
+
+            <div>
+                <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_lemon.jpg') ?>" />
+            </div>
+
+            <div>
+                <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_donut.jpg') ?>" />
+            </div>
+            <div>
+                <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_caramel.jpg') ?>" />
+            </div>
+        </div>
+        <script type="text/javascript">
+            jQuery(document).ready(function($) {
+                $(".slider").slideshow({
+                    width: 550,
+                    height: 325,
+                    transition: ['barLeft', 'barRight']
+                });
+            });
+        </script>
+        <?php
+        break;
+    //slider 3
+    case 3:
+        ?>
+        <script type="text/javascript">
+            window.resizeTo(900, 500);
+        </script>
+        <link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/magestore/bannerslider/slider3.css') ?>" /> 
+        <div class="slider" style="margin:auto">
+            <div>
+                <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_cheesecake_brownie.jpg') ?>" />
+            </div>
+
+            <div>
+                <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_lemon.jpg') ?>" />
+            </div>
+
+            <div>
+                <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_donut.jpg') ?>" />
+            </div>
+            <div>
+                <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_caramel.jpg') ?>" />
+            </div>
+        </div>
+        <script type="text/javascript">
+            jQuery(document).ready(function($) {
+                $(".slider").slideshow({
+                    width: 550,
+                    height: 325,
+                    transition: 'square'
+                });
+            });
+        </script>
+        <?php
+        break;
+    //Slide 4
+    case 4:
+        ?>
+        <script type="text/javascript">
+            window.resizeTo(900, 500);
+        </script>
+        <link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/magestore/bannerslider/slider4.css') ?>" /> 
+        <div class="slider" style="margin:auto">
+            <div>
+                <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_cheesecake_brownie.jpg') ?>" />
+            </div>
+
+            <div>
+                <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_lemon.jpg') ?>" />
+            </div>
+
+            <div>
+                <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_donut.jpg') ?>" />
+            </div>
+            <div>
+                <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_caramel.jpg') ?>" />
+            </div>
+        </div>
+        <script type="text/javascript">
+            jQuery(document).ready(function($) {
+                $(".slider").slideshow({
+                    width: 550,
+                    height: 325,
+                    transition: 'squareRandom'
+                });
+            });
+        </script>
+        <?php
+        break;
+    //slider 5
+    case 5:
+        ?>
+        <script type="text/javascript">
+            window.resizeTo(900, 500);
+            $(window).load(function() {
+                $('.flexslider').flexslider({
+                    animation: "slide"
+                });
+            });
+        </script>
+        <div style="width: 500; margin: auto">    
+            <div class="flexslider" style="margin:auto">
+                <ul class="slides">
+                    <li>
+                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_cheesecake_brownie.jpg') ?>" />
+                    </li>
+                    <li>
+                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_lemon.jpg') ?>" />
+                    </li>
+                    <li>
+                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_donut.jpg') ?>" />
+                    </li>
+                    <li>
+                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_caramel.jpg') ?>" />
+                    </li>
+                </ul>
+            </div>
+        </div>   
+        <?php
+        break;
+    //Refineslide
+    case 6:
+        ?>
+        <script type="text/javascript">
+            // Can also be used with $(document).ready()
+            window.resizeTo(900, 700);
+            $(window).load(function() {
+                $('.flexslider').flexslider({
+                    animation: "slide",
+                    controlNav: "thumbnails"
+                });
+            });
+        </script>
+        <div style="width: 500; height:400;  margin: auto">
+            <!-- Place somewhere in the <body> of your page -->
+            <div class="flexslider" style="margin:auto">
+                <ul class="slides">
+                    <li data-thumb="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_cheesecake_brownie.jpg') ?>">
+                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_cheesecake_brownie.jpg') ?>" />
+                    </li>
+                    <li data-thumb="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_lemon.jpg') ?>">
+                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_lemon.jpg') ?>" />
+                    </li>
+                    <li data-thumb="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_donut.jpg') ?>">
+                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_donut.jpg') ?>" />
+                    </li>
+                    <li data-thumb="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_caramel.jpg') ?>">
+                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_caramel.jpg') ?>" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <?php
+        break;
+    //Slide show jmpress
+    case 7:
+        ?>
+        <script type="text/javascript">
+            window.resizeTo(900, 550);
+            $(window).load(function() {
+                // The slider being synced must be initialized first
+                $('#carousel').flexslider({
+                    animation: "slide",
+                    controlNav: false,
+                    animationLoop: false,
+                    slideshow: false,
+                    itemWidth: 210,
+                    itemMargin: 5,
+                    asNavFor: '#slider'
+                });
+
+                $('#slider').flexslider({
+                    animation: "slide",
+                    controlNav: false,
+                    animationLoop: false,
+                    slideshow: false,
+                    sync: "#carousel"
+                });
+            });
+        </script>
+        <div style="width: 500; margin: auto">
+            <div id="slider" class="flexslider" style="margin:auto">
+                <ul class="slides">
+                    <li>
+                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_cheesecake_brownie.jpg') ?>" />
+                    </li>
+                    <li>
+                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_lemon.jpg') ?>" />
+                    </li>
+                    <li>
+                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_donut.jpg') ?>" />
+                    </li>
+                    <li>
+                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_caramel.jpg') ?>" />
+                    </li>
+                    <!-- items mirrored twice, total of 12 -->
+                </ul>
+            </div>
+            <div id="carousel" class="flexslider" style="margin:auto">
+                <ul class="slides">
+
+                    <li>
+                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_cheesecake_brownie.jpg') ?>" />
+                    </li>
+                    <li>
+                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_lemon.jpg') ?>" />
+                    </li>
+                    <li>
+                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_donut.jpg') ?>" />
+                    </li>
+                    <li>
+                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_caramel.jpg') ?>" />
+                    </li>
+                    <!-- items mirrored twice, total of 12 -->
+                </ul>
+            </div>
+        </div>
+        <?php
+        break;
+    //Modern slide-in
+    case 8:
+        ?>
+        <script type="text/javascript">
+            window.resizeTo(900, 300);
+            $(window).load(function() {
+                $('.flexslider').flexslider({
+                    animation: "slide",
+                    animationLoop: false,
+                    itemWidth: 210,
+                    itemMargin: 5,
+                    minItems: 2,
+                    maxItems: 4
+                });
+            });
+        </script>
+        <div style="width: 500; margin: auto">
+            <div class="flexslider" style="margin:auto">
+                <ul class="slides">
+                    <li>
+                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_cheesecake_brownie.jpg') ?>" />
+                    </li>
+                    <li>
+                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_lemon.jpg') ?>" />
+                    </li>
+                    <li>
+                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_donut.jpg') ?>" />
+                    </li>
+                    <li>
+                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_caramel.jpg') ?>" />
+                    </li>
+                    <!-- items mirrored twice, total of 12 -->
+                </ul>
+            </div>
+        </div>
+        <?php
+        break;
+        ?>
+        <?php case 9: ?>
+            <link rel="stylesheet" type="text/css" href="<?php echo $this->getJsUrl('magestore/bannerslider/jquery.ads.note.css') ?>">
+            <link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/magestore/bannerslider/slider3.css') ?>" /> 
+            <script type="text/javascript" src="<?php echo $this->getJsUrl('magestore/bannerslider/jquery.ads.note.js') ?>"></script>
+            <script type="text/javascript">
+                jQuery(document).ready(function($) {
+                          // khai báo note
+                          $("#ads-note1").adsNote({
+                                  bgcolor:"#83ba00", //23b8ff  
+                                  position:"top-left"
+                          });
+                          $("#ads-note2").adsNote({
+                                  bgcolor:"#f7d700",
+                                  position:"top-right"
+                          });
+                           $("#ads-note3").adsNote({
+                                  bgcolor:"#dd0707",
+                                  position:"middle-top"
+                          });
+                          $("#ads-note4").adsNote({
+                                  bgcolor:"#ee5f00",
+                                  position:"middle-left"
+                          });
+                          $("#ads-note5").adsNote({
+                                  bgcolor:"#999",
+                                  position:"middle-right"
+                          });
+                          $("#ads-note6").adsNote({
+                                  bgcolor:"#23b8ff",
+                                  position:"bottom-left"
+                          });
+                          $("#ads-note7").adsNote({
+                                  bgcolor:"#ee5f00",
+                                  position:"middle-bottom"
+                          });
+                          $("#ads-note8").adsNote({
+                                  bgcolor:"#dd0707",
+                                  position:"bottom-right"
+                          });
+
+                        //khai báo slide
+                      $(".slider1").slideshow({
+                        width      : 300,
+                        height     : 200,
+                        transition : 'squarerandom'
+                      });
+                      $(".slider2").slideshow({
+                        width      : 300,
+                        height     : 200,
+                        transition : 'squarerandom'
+                      });
+                      $(".slider3").slideshow({
+                        width      : 300,
+                        height     : 200,
+                        transition : 'squarerandom'
+                      });
+                      $(".slider4").slideshow({
+                        width      : 300,
+                        height     : 200,
+                        transition : 'squarerandom'
+                      });
+                      $(".slider5").slideshow({
+                        width      : 300,
+                        height     : 200,
+                        transition : 'squarerandom'
+                      });
+                      $(".slider6").slideshow({
+                        width      : 300,
+                        height     : 200,
+                        transition : 'squarerandom'
+                      });
+                      $(".slider7").slideshow({
+                        width      : 300,
+                        height     : 200,
+                        transition : 'squarerandom'
+                      });
+                      $(".slider8").slideshow({
+                        width      : 300,
+                        height     : 200,
+                        transition : 'squarerandom'
+                      });
+                    });
+           </script>
+            <div id="ads-note1" class="ads-note">
+            <div class="ads-note-box" >
+                        <div class="ads-note-content">
+                            <div class="ads-note-content-text">
+                                   Text color <strong><span style="color: #83ba00;">Green</span></strong>
+                            </div>
+                            <div class="ads-note-content-img">
+                                <div class="slider1">
+                                    <div>
+                                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_cheesecake_brownie.jpg') ?>" width="300px" height="200px" />
+                                    </div>
+
+                                    <div>
+                                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_lemon.jpg') ?>" width="300px" height="200px" />
+                                    </div>
+
+                                    <div>
+                                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_donut.jpg') ?>" width="300px" height="200px" />
+                                    </div>
+                                    <div>
+                                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_caramel.jpg') ?>" width="300px" height="200px" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="ads-note2">
+                    <div class="ads-note-box">
+                        <div class="ads-note-content">
+                            <div class="ads-note-content-text">
+                                   Text color <strong><span style="color: #83ba00;">Green</span></strong>
+                            </div>
+                            <div class="ads-note-content-img">
+                                <!--Nội dung ảnh -->
+                                <div class="slider2" style="margin:auto">
+                                                                       <div>
+                                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_cheesecake_brownie.jpg') ?>" width="300px" height="200px" />
+                                    </div>
+
+                                    <div>
+                                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_lemon.jpg') ?>" width="300px" height="200px" />
+                                    </div>
+
+                                    <div>
+                                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_donut.jpg') ?>" width="300px" height="200px" />
+                                    </div>
+                                    <div>
+                                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_caramel.jpg') ?>" width="300px" height="200px" />
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="ads-note3" class="ads-note">
+                    <div class="ads-note-box" >
+                        <div class="ads-note-content">
+                            <div class="ads-note-content-text">
+                                   Text color <strong><span style="color: #83ba00;">Green</span></strong>
+                            </div>
+                            <div class="ads-note-content-img">
+                                 <div class="slider3" style="margin:auto">
+                                                                        <div>
+                                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_cheesecake_brownie.jpg') ?>" width="300px" height="200px" />
+                                    </div>
+
+                                    <div>
+                                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_lemon.jpg') ?>" width="300px" height="200px" />
+                                    </div>
+
+                                    <div>
+                                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_donut.jpg') ?>" width="300px" height="200px" />
+                                    </div>
+                                    <div>
+                                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_caramel.jpg') ?>" width="300px" height="200px" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="ads-note4" class="ads-note">
+                    <div class="ads-note-box" >
+                        <div class="ads-note-content">
+                            <div class="ads-note-content-text">
+                                Text color <strong><span style="color: #83ba00;">Green</span></strong>
+                            </div>
+                            <div class="ads-note-content-img">
+                                <div class="slider4" style="margin:auto">
+                                   <div>
+                                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_cheesecake_brownie.jpg') ?>" width="300px" height="200px" />
+                                    </div>
+
+                                    <div>
+                                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_lemon.jpg') ?>" width="300px" height="200px" />
+                                    </div>
+
+                                    <div>
+                                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_donut.jpg') ?>" width="300px" height="200px" />
+                                    </div>
+                                    <div>
+                                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_caramel.jpg') ?>" width="300px" height="200px" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="ads-note5" class="ads-note">
+                    <div class="ads-note-box" >
+                        <div class="ads-note-content">
+                            <div class="ads-note-content-text">
+                                Text color <strong><span style="color: #83ba00;">Green</span></strong>
+                            </div>
+                            <div class="ads-note-content-img">
+                                <div class="slider5" style="margin:auto">
+                                    <div>
+                                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_cheesecake_brownie.jpg') ?>" width="300px" height="200px" />
+                                    </div>
+
+                                    <div>
+                                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_lemon.jpg') ?>" width="300px" height="200px" />
+                                    </div>
+
+                                    <div>
+                                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_donut.jpg') ?>" width="300px" height="200px" />
+                                    </div>
+                                    <div>
+                                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_caramel.jpg') ?>" width="300px" height="200px" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <div id="ads-note6" class="ads-note">
+                    <div class="ads-note-box" >
+                        <div class="ads-note-content">
+                            <div class="ads-note-content-text">
+                                Text color <strong><span style="color: #83ba00;">Green</span></strong>
+                            </div>
+                            <div class="ads-note-content-img">
+                                    <div>
+                                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_cheesecake_brownie.jpg') ?>" width="300px" height="200px" />
+                                    </div>
+
+                                    <div>
+                                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_lemon.jpg') ?>" width="300px" height="200px" />
+                                    </div>
+
+                                    <div>
+                                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_donut.jpg') ?>" width="300px" height="200px" />
+                                    </div>
+                                    <div>
+                                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_caramel.jpg') ?>" width="300px" height="200px" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <div id="ads-note7" class="ads-note">
+                    <div class="ads-note-box" >
+                        <div class="ads-note-content">
+                            <div class="ads-note-content-text">
+                                Text color <strong><span style="color: #83ba00;">Green</span></strong>
+                            </div>
+                            <div class="ads-note-content-img">
+                                <div class="slider7" style="margin:auto">
+                                     <div>
+                                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_cheesecake_brownie.jpg') ?>" width="300px" height="200px" />
+                                    </div>
+
+                                    <div>
+                                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_lemon.jpg') ?>" width="300px" height="200px" />
+                                    </div>
+
+                                    <div>
+                                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_donut.jpg') ?>" width="300px" height="200px" />
+                                    </div>
+                                    <div>
+                                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_caramel.jpg') ?>" width="300px" height="200px" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <div id="ads-note8" class="ads-note">
+                    <div class="ads-note-box" >
+                        <div class="ads-note-content">
+                            <div class="ads-note-content-text">
+                                Nội dung  text
+                            </div>
+                            <div class="ads-note-content-img">
+                                <div class="slider8" style="margin:auto">
+                                    <div>
+                                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_cheesecake_brownie.jpg') ?>" width="300px" height="200px" />
+                                    </div>
+
+                                    <div>
+                                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_lemon.jpg') ?>" width="300px" height="200px" />
+                                    </div>
+
+                                    <div>
+                                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_donut.jpg') ?>" width="300px" height="200px" />
+                                    </div>
+                                    <div>
+                                        <img src="<?php echo $this->getSkinUrl('css/magestore/bannerslider/image/demo/kitchen_adventurer_caramel.jpg') ?>" width="300px" height="200px" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        <?php break; ?>
+    <?php
+}
+?>

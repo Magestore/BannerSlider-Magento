@@ -1,0 +1,844 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magestore
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the Magestore.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.magestore.com/license-agreement.html
+ * 
+ * DISCLAIMER
+ * 
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category 	Magestore
+ * @package 	Magestore_Bannerslider
+ * @copyright 	Copyright (c) 2012 Magestore (http://www.magestore.com/)
+ * @license 	http://www.magestore.com/license-agreement.html
+ */
+-->
+<layout version="0.1.0">
+        
+    <default>
+        <!-- update layout for all frontend page -->
+        <reference name="head">
+            <action method="addCss">
+                <stylesheet>css/magestore/bannerslider/popup.css</stylesheet>
+            </action>
+            <action method="addJs"><script>magestore/bannerslider/lightbox.js</script></action>
+        </reference>
+        <reference name="right">
+            <block type="bannerslider/bannerslider" name="sidebar.right.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>sidebar-right-top</block_position>
+                </action>
+            </block>
+            <block type="bannerslider/bannerslider" name="sidebar.right.bottom">
+                <action method="setBlockPosition">
+                    <block_position>sidebar-right-bottom</block_position>
+                </action>
+            </block>
+        </reference>
+        <reference name="left">
+            <block type="bannerslider/bannerslider" name="sidebar.left.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>sidebar-left-top</block_position>
+                </action>
+            </block>
+            <block type="bannerslider/bannerslider" name="sidebar.left.bottom">
+                <action method="setBlockPosition">
+                    <block_position>sidebar-left-bottom</block_position>
+                </action>
+            </block>
+        </reference>
+        <reference name="content">
+            <block type="bannerslider/bannerslider" name="content.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>content-top</block_position>                    
+                </action>
+                <action method="setBlocknotePosition">                    
+                    <blocknote_position>note-allsite</blocknote_position>
+                </action>
+            </block>
+        </reference>
+        <reference name="top.menu">
+            <block type="bannerslider/bannerslider" name="menu.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>menu-top</block_position>
+                </action>
+            </block>
+            <block type="bannerslider/bannerslider" name="menu.bottom">
+                <action method="setBlockPosition">
+                    <block_position>menu-bottom</block_position>
+                </action>
+            </block>
+        </reference>
+        <reference name="before_body_end" >
+            <block type="bannerslider/bannerslider" name="page.bottom" >
+                <action method="setBlockPosition">
+                    <block_position>page-bottom</block_position>
+                </action>
+            </block>
+        </reference>
+    </default>
+    <!-- homepage -->
+    <cms_index_index>
+        <reference name="content">
+            <block type="bannerslider/bannerslider" name="cms.page.content.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>cms-page-content-top</block_position>
+                </action>
+                <action method="setPopupPosition">
+                    <popup_position>pop-up</popup_position>
+                </action>
+            </block>
+        </reference>
+    </cms_index_index>
+    <!-- end homepage -->
+    
+    <!-- customer -->
+    <customer_account>
+        <!-- <reference name="customer_account_navigation">
+            <block type="banner/client" name="banner" >
+                <action method="addAffiliateLink"/>
+            </block>
+        </reference> -->
+        <reference name="content">
+            <action method="unsetChild">
+                <name>content.top</name>
+            </action>
+        </reference>
+        <reference name="left">
+            <action method="unsetChild">
+                <name>sidebar.left.bottom</name>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="bannerslider/bannerslider" name="content.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>customer-content-top</block_position>
+                </action>
+            </block>
+        </reference>
+        <reference name="left">
+            <block type="bannerslider/bannerslider" name="sidebar.left.bottom">
+                <action method="setBlockPosition">
+                    <block_position>sidebar-left-bottom</block_position>
+                </action>
+            </block>
+        </reference>
+    </customer_account>
+    <customer_address_index>
+        <reference name="content">
+            <action method="unsetChild">
+                <name>content.top</name>
+            </action>
+            <block type="bannerslider/bannerslider" name="content.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>customer-content-top</block_position>
+                </action>
+            </block>
+        </reference>
+    </customer_address_index>		
+    <!-- end customer -->
+    
+     <!-- catalog -->
+    <catalog_product_view>
+        <reference name="right">
+            <action method="unsetChild">
+                <name>sidebar.right.top</name>
+            </action>
+            <action method="unsetChild">
+                <name>sidebar.right.bottom</name>
+            </action>
+        </reference>
+        <reference name="right">
+            <block type="bannerslider/bannerslider" name="sidebar.right.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>sidebar-right-top</block_position>
+                </action>
+            </block>
+            <block type="bannerslider/bannerslider" name="sidebar.right.bottom">
+                <action method="setBlockPosition">
+                    <block_position>sidebar-right-bottom</block_position>
+                </action>
+            </block>
+        </reference>
+    </catalog_product_view>
+    <catalog_category_default>
+        <reference name="right">
+            <block type="bannerslider/bannerslider" name="catalog.sidebar.right.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>catalog-sidebar-right-top</block_position>
+                </action>
+                <action method="setCateBlockPosition">
+                    <cateblock_position>category-sidebar-right-top</cateblock_position>
+                </action>
+            </block>
+            <block type="bannerslider/bannerslider" name="catalog.sidebar.right.bottom">
+                <action method="setBlockPosition">
+                    <block_position>catalog-sidebar-right-bottom</block_position>
+                </action>
+                <action method="setCateBlockPosition">
+                    <cateblock_position>category-sidebar-right-bottom</cateblock_position>
+                </action>
+            </block>
+        </reference>
+        <reference name="left">
+            <block type="bannerslider/bannerslider" name="catalog.sidebar.left.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>catalog-sidebar-left-top</block_position>
+                </action>
+                <action method="setCateBlockPosition">
+                    <cateblock_position>category-sidebar-left-top</cateblock_position>
+                </action>
+            </block>
+            <block type="bannerslider/bannerslider" name="catalog.sidebar.left.bottom">
+                <action method="setBlockPosition">
+                    <block_position>catalog-sidebar-left-bottom</block_position>
+                </action>
+                <action method="setCateBlockPosition">
+                    <cateblock_position>category-sidebar-left-bottom</cateblock_position>
+                </action>
+            </block>
+        </reference>
+        <reference name="content">
+            <block type="bannerslider/bannerslider" name="catalog.content.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>catalog-content-top</block_position>
+                </action>
+                <action method="setCateBlockPosition">
+                    <cateblock_position>category-content-top</cateblock_position>
+                </action>
+            </block>
+        </reference>
+        <reference name="top.menu">
+            <block type="bannerslider/bannerslider" name="catalog.menu.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>catalog-menu-top</block_position>
+                </action>
+                <action method="setCateBlockPosition">
+                    <cateblock_position>category-menu-top</cateblock_position>
+                </action>
+            </block>
+            <block type="bannerslider/bannerslider" name="catalog.menu.bottom">
+                <action method="setBlockPosition">
+                    <block_position>catalog-menu-bottom</block_position>
+                </action>
+                <action method="setCateBlockPosition">
+                    <cateblock_position>category-menu-bottom</cateblock_position>
+                </action>
+            </block>
+        </reference>
+        <reference name="before_body_end" >
+            <block type="bannerslider/bannerslider" name="catalog.page.bottom" >
+                <action method="setBlockPosition">
+                    <block_position>catalog-page-bottom</block_position>
+                </action>
+                <action method="setCateBlockPosition">
+                    <cateblock_position>category-page-bottom</cateblock_position>
+                </action>
+            </block>
+        </reference>
+    </catalog_category_default>
+    <catalog_category_layered>
+        <reference name="right">
+            <block type="bannerslider/bannerslider" name="catalog.sidebar.right.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>catalog-sidebar-right-top</block_position>
+                </action>
+                <action method="setCateBlockPosition">
+                    <cateblock_position>category-sidebar-right-top</cateblock_position>
+                </action>
+            </block>
+            <block type="bannerslider/bannerslider" name="catalog.sidebar.right.bottom">
+                <action method="setBlockPosition">
+                    <block_position>catalog-sidebar-right-bottom</block_position>
+                </action>
+                <action method="setCateBlockPosition">
+                    <cateblock_position>category-sidebar-right-bottom</cateblock_position>
+                </action>
+            </block>
+        </reference>
+        <reference name="left">
+            <block type="bannerslider/bannerslider" name="catalog.sidebar.left.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>catalog-sidebar-left-top</block_position>
+                </action>
+                <action method="setCateBlockPosition">
+                    <cateblock_position>category-sidebar-left-top</cateblock_position>
+                </action>
+            </block>
+            <block type="bannerslider/bannerslider" name="catalog.sidebar.left.bottom">
+                <action method="setBlockPosition">
+                    <block_position>catalog-sidebar-left-bottom</block_position>
+                </action>
+                <action method="setCateBlockPosition">
+                    <cateblock_position>category-sidebar-left-bottom</cateblock_position>
+                </action>
+            </block>
+        </reference>
+        <reference name="content">
+            <block type="bannerslider/bannerslider" name="catalog.content.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>catalog-content-top</block_position>
+                </action>
+                <action method="setCateBlockPosition">
+                    <cateblock_position>category-content-top</cateblock_position>
+                </action>
+            </block>
+        </reference>
+        <reference name="top.menu">
+            <block type="bannerslider/bannerslider" name="catalog.menu.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>catalog-menu-top</block_position>
+                </action>
+                <action method="setCateBlockPosition">
+                    <cateblock_position>category-menu-top</cateblock_position>
+                </action>
+            </block>
+            <block type="bannerslider/bannerslider" name="catalog.menu.bottom">
+                <action method="setBlockPosition">
+                    <block_position>catalog-menu-bottom</block_position>
+                </action>
+                <action method="setCateBlockPosition">
+                    <cateblock_position>category-menu-bottom</cateblock_position>
+                </action>
+            </block>
+        </reference>
+        <reference name="before_body_end" >
+            <block type="bannerslider/bannerslider" name="catalog.page.bottom" >
+                <action method="setBlockPosition">
+                    <block_position>catalog-page-bottom</block_position>
+                </action>
+                <action method="setCateBlockPosition">
+                    <cateblock_position>category-page-bottom</cateblock_position>
+                </action>
+            </block>
+        </reference>	  
+    </catalog_category_layered>
+    <catalog_product_view>
+        <reference name="right">
+            <block type="bannerslider/bannerslider" name="catalog.sidebar.right.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>catalog-sidebar-right-top</block_position>
+                </action>
+            </block>
+            <block type="bannerslider/bannerslider" name="catalog.sidebar.right.bottom">
+                <action method="setBlockPosition">
+                    <block_position>catalog-sidebar-right-bottom</block_position>
+                </action>
+            </block>
+        </reference>
+        <reference name="left">
+            <block type="bannerslider/bannerslider" name="catalog.sidebar.left.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>catalog-sidebar-left-top</block_position>
+                </action>
+            </block>
+            <block type="bannerslider/bannerslider" name="catalog.sidebar.left.bottom">
+                <action method="setBlockPosition">
+                    <block_position>catalog-sidebar-left-bottom</block_position>
+                </action>
+            </block>
+        </reference>
+        <reference name="content">
+            <block type="bannerslider/bannerslider" name="catalog.content.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>catalog-content-top</block_position>
+                </action>
+            </block>
+        </reference>
+        <reference name="top.menu">
+            <block type="bannerslider/bannerslider" name="catalog.menu.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>catalog-menu-top</block_position>
+                </action>
+            </block>
+            <block type="bannerslider/bannerslider" name="catalog.menu.bottom">
+                <action method="setBlockPosition">
+                    <block_position>catalog-menu-bottom</block_position>
+                </action>
+            </block>
+        </reference>
+        <reference name="before_body_end" >
+            <block type="bannerslider/bannerslider" name="catalog.page.bottom" >
+                <action method="setBlockPosition">
+                    <block_position>catalog-page-bottom</block_position>
+                </action>
+            </block>
+        </reference>	  
+        <reference name="right">
+            <block type="bannerslider/bannerslider" name="product.sidebar.right.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>product-sidebar-right-top</block_position>
+                </action>
+            </block>
+            <block type="bannerslider/bannerslider" name="product.sidebar.right.bottom">
+                <action method="setBlockPosition">
+                    <block_position>product-sidebar-right-bottom</block_position>
+                </action>
+            </block>
+        </reference>
+        <reference name="left">
+            <block type="bannerslider/bannerslider" name="product.sidebar.left.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>product-sidebar-left-top</block_position>
+                </action>
+            </block>
+            <block type="bannerslider/bannerslider" name="product.sidebar.left.bottom">
+                <action method="setBlockPosition">
+                    <block_position>product-sidebar-left-bottom</block_position>
+                </action>
+            </block>
+        </reference>
+        <reference name="content">
+            <block type="bannerslider/bannerslider" name="product.content.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>product-content-top</block_position>
+                </action>
+            </block>
+        </reference>
+        <reference name="top.menu">
+            <block type="bannerslider/bannerslider" name="product.menu.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>product-menu-top</block_position>
+                </action>
+            </block>
+            <block type="bannerslider/bannerslider" name="product.menu.bottom">
+                <action method="setBlockPosition">
+                    <block_position>product-menu-bottom</block_position>
+                </action>
+            </block>
+        </reference>
+        <reference name="before_body_end" >
+            <block type="bannerslider/bannerslider" name="product.page.bottom" >
+                <action method="setBlockPosition">
+                    <block_position>product-page-bottom</block_position>
+                </action>
+            </block>
+        </reference>
+    </catalog_product_view>
+    <!-- end catalog -->
+	
+    <!-- checkout -->
+    <checkout_cart_index>
+        <reference name="content">
+            <action method="unsetChild">
+                <name>content.top</name>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="bannerslider/bannerslider" name="content.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>cart-content-top</block_position>
+                </action>
+            </block>
+        </reference>
+    </checkout_cart_index>
+    <checkout_multishipping>
+        <reference name="content">
+            <action method="unsetChild">
+                <name>content.top</name>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="bannerslider/bannerslider" name="content.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>checkout-content-top</block_position>
+                </action>
+            </block>
+        </reference>
+    </checkout_multishipping>
+    <checkout_multishipping_login>
+        <reference name="content">
+            <action method="unsetChild">
+                <name>content.top</name>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="bannerslider/bannerslider" name="content.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>checkout-content-top</block_position>
+                </action>
+            </block>
+        </reference>
+    </checkout_multishipping_login>
+    <checkout_multishipping_register>
+        <reference name="content">
+            <action method="unsetChild">
+                <name>content.top</name>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="bannerslider/bannerslider" name="content.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>checkout-content-top</block_position>
+                </action>
+            </block>
+        </reference>
+    </checkout_multishipping_register>
+    <checkout_multishipping_address_select>
+        <reference name="content">
+            <action method="unsetChild">
+                <name>content.top</name>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="bannerslider/bannerslider" name="content.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>checkout-content-top</block_position>
+                </action>
+            </block>
+        </reference>
+    </checkout_multishipping_address_select>
+    <checkout_multishipping_address_selectbilling>
+        <reference name="content">
+            <action method="unsetChild">
+                <name>content.top</name>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="bannerslider/bannerslider" name="content.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>checkout-content-top</block_position>
+                </action>
+            </block>
+        </reference>
+    </checkout_multishipping_address_selectbilling>
+    <checkout_multishipping_address_newshipping>
+        <reference name="content">
+            <action method="unsetChild">
+                <name>content.top</name>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="bannerslider/bannerslider" name="content.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>checkout-content-top</block_position>
+                </action>
+            </block>
+        </reference>
+    </checkout_multishipping_address_newshipping>
+    <checkout_multishipping_address_newbilling>
+        <reference name="content">
+            <action method="unsetChild">
+                <name>content.top</name>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="bannerslider/bannerslider" name="content.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>checkout-content-top</block_position>
+                </action>
+            </block>
+        </reference>
+    </checkout_multishipping_address_newbilling>
+    <checkout_multishipping_address_editshipping>
+        <reference name="content">
+            <action method="unsetChild">
+                <name>content.top</name>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="bannerslider/bannerslider" name="content.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>checkout-content-top</block_position>
+                </action>
+            </block>
+        </reference>
+    </checkout_multishipping_address_editshipping>
+    <checkout_multishipping_address_editaddress>
+        <reference name="content">
+            <action method="unsetChild">
+                <name>content.top</name>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="bannerslider/bannerslider" name="content.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>checkout-content-top</block_position>
+                </action>
+            </block>
+        </reference>
+    </checkout_multishipping_address_editaddress>
+    <checkout_multishipping_address_editbilling>
+        <reference name="content">
+            <action method="unsetChild">
+                <name>content.top</name>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="bannerslider/bannerslider" name="content.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>checkout-content-top</block_position>
+                </action>
+            </block>
+        </reference>
+    </checkout_multishipping_address_editbilling>
+    <checkout_multishipping_customer_address>
+        <reference name="content">
+            <action method="unsetChild">
+                <name>content.top</name>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="bannerslider/bannerslider" name="content.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>checkout-content-top</block_position>
+                </action>
+            </block>
+        </reference>
+    </checkout_multishipping_customer_address>
+    <checkout_multishipping_addresses>
+        <reference name="content">
+            <action method="unsetChild">
+                <name>content.top</name>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="bannerslider/bannerslider" name="content.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>checkout-content-top</block_position>
+                </action>
+            </block>
+        </reference>
+    </checkout_multishipping_addresses>
+    <checkout_multishipping_shipping>
+        <reference name="content">
+            <action method="unsetChild">
+                <name>content.top</name>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="bannerslider/bannerslider" name="content.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>checkout-content-top</block_position>
+                </action>
+            </block>
+        </reference>
+    </checkout_multishipping_shipping>
+    <checkout_multishipping_billing>
+        <reference name="content">
+            <action method="unsetChild">
+                <name>content.top</name>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="bannerslider/bannerslider" name="content.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>checkout-content-top</block_position>
+                </action>
+            </block>
+        </reference>
+    </checkout_multishipping_billing>
+    <checkout_multishipping_overview>
+        <reference name="content">
+            <action method="unsetChild">
+                <name>content.top</name>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="bannerslider/bannerslider" name="content.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>checkout-content-top</block_position>
+                </action>
+            </block>
+        </reference>
+    </checkout_multishipping_overview>
+    <checkout_multishipping_success>
+        <reference name="content">
+            <action method="unsetChild">
+                <name>content.top</name>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="bannerslider/bannerslider" name="content.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>checkout-content-top</block_position>
+                </action>
+            </block>
+        </reference>
+    </checkout_multishipping_success>
+    <checkout_onepage_index>
+        <reference name="content">
+            <action method="unsetChild">
+                <name>content.top</name>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="bannerslider/bannerslider" name="content.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>checkout-content-top</block_position>
+                </action>
+            </block>
+        </reference>
+    </checkout_onepage_index>
+    <checkout_onepage_progress>
+        <reference name="content">
+            <action method="unsetChild">
+                <name>content.top</name>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="bannerslider/bannerslider" name="content.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>checkout-content-top</block_position>
+                </action>
+            </block>
+        </reference>
+    </checkout_onepage_progress>
+    <checkout_onepage_paymentmethod>
+        <reference name="content">
+            <action method="unsetChild">
+                <name>content.top</name>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="bannerslider/bannerslider" name="content.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>checkout-content-top</block_position>
+                </action>
+            </block>
+        </reference>
+    </checkout_onepage_paymentmethod>
+    <checkout_onepage_shippingmethod>
+        <reference name="content">
+            <action method="unsetChild">
+                <name>content.top</name>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="bannerslider/bannerslider" name="content.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>checkout-content-top</block_position>
+                </action>
+            </block>
+        </reference>
+    </checkout_onepage_shippingmethod>
+    <checkout_onepage_additional>
+        <reference name="content">
+            <action method="unsetChild">
+                <name>content.top</name>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="bannerslider/bannerslider" name="content.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>checkout-content-top</block_position>
+                </action>
+            </block>
+        </reference>
+    </checkout_onepage_additional>
+    <checkout_onepage_review>
+        <reference name="content">
+            <action method="unsetChild">
+                <name>content.top</name>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="bannerslider/bannerslider" name="content.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>checkout-content-top</block_position>
+                </action>
+            </block>
+        </reference>
+    </checkout_onepage_review>
+    <checkout_onepage_success>
+        <reference name="content">
+            <action method="unsetChild">
+                <name>content.top</name>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="bannerslider/bannerslider" name="content.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>checkout-content-top</block_position>
+                </action>
+            </block>
+        </reference>
+    </checkout_onepage_success>
+    <checkout_onepage_failure>
+        <reference name="content">
+            <action method="unsetChild">
+                <name>content.top</name>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="bannerslider/bannerslider" name="content.top" before="-">
+                <action method="setBlockPosition">
+                    <block_position>checkout-content-top</block_position>
+                </action>
+            </block>
+        </reference>
+    </checkout_onepage_failure>
+    <!-- end checkout -->
+    
+    <bannerslider_index_index>
+        <reference name="content">
+            <block type="bannerslider/bannerslider" name="bannerslider" template="bannerslider/bannerslider.phtml" />
+        </reference>
+    </bannerslider_index_index>
+    <!--bannerslider_popup_index>
+        <reference name="head">
+            <action method="addJs">
+                <script>magestore/bannerslider/lightbox.js</script>
+            </action>
+            <action method="addCss">
+                <stylesheet>css/magestore/bannerslider/popup.css</stylesheet>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="bannerslider/popup" name="popup" template="bannerslider/popup.phtml" />
+        </reference>
+    </bannerslider_popup_index>
+    <bannerslider_applelike_index>
+        <reference name="head">
+            <action method="addJs">
+                <script>magestore/bannerslider/applelike.js</script>
+            </action>
+            <action method="addJs">
+                <script>magestore/bannerslider/jquery.min.js</script>
+            </action>
+            <action method="addCss">
+                <stylesheet>css/magestore/bannerslider/applelike.css</stylesheet>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="bannerslider/applelike" name="applelike slide" template="bannerslider/applelike.phtml" />
+        </reference>
+    </bannerslider_applelike_index-->
+    <!--AWESOME-->
+    <!--bannerslider_awesome_index>
+        <reference name="head">
+            <action method="addCss">
+                <stylesheet>css/magestore/bannerslider/awesome.css</stylesheet>
+            </action>
+            <action method="addCss">
+                <stylesheet>css/magestore/bannerslider/awesome-1.css</stylesheet>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="bannerslider/awesome" name="Awesome slide" template="bannerslider/awesome.phtml" />
+        </reference>
+    </bannerslider_awesome_index>
+    <bannerslider_contentslide_index>
+        <reference name="head">
+            <action method="addJs">
+                <script>magestore/bannerslider/jquery.easing.1.3.js</script>
+            </action>
+            <action method="addJs">
+                <script>magestore/bannerslider/jquery.ennui.contentslider.js</script>
+            </action>
+            <action method="addCss">
+                <stylesheet>css/magestore/bannerslider/jquery.ennui.contentslider.css</stylesheet>
+            </action>		 
+        </reference>
+        <reference name="content">
+            <block type="bannerslider/contentslide" name="Awesome slide" template="bannerslider/contentslide.phtml" />
+        </reference>
+    </bannerslider_contentslide_index-->
+</layout>

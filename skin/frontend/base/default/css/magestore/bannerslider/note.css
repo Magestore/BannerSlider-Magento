@@ -1,0 +1,40 @@
+@charset "utf-8";
+
+#magestore-bannerslider-note {
+	position:fixed;
+	top:10px;
+	left:5px;
+	z-index:8000;
+}
+#magestore-bannerslider-note .small-note{
+	background:url(image/note.png) 50% 10% no-repeat ;
+	width:100px;
+	height:100px;
+	padding:30px 20px;
+	padding-bottom:5px;
+}
+#magestore-bannerslider-note .larger-note{
+	background:url(image/note2.png) no-repeat;
+	width:280px;
+	height:300px;
+	padding:25px 20px 20px 20px;
+	display:none;
+}
+#magestore-bannerslider-note #note-close {
+	background:url(image/close-tiny.png) no-repeat;
+	width:22px;
+	height:22px;
+	float:left;
+	margin-top:-10px;
+}
+#magestore-bannerslider-note .show-note{
+	position:fixed;
+	z-index:9000;
+	top:10px;
+	left:0;
+	background:#fff;
+	opacity:0.005;
+	width:35px;
+	height:140px;
+	display:none;
+}

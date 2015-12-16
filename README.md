@@ -8,7 +8,7 @@
 </ul>
 <p><strong>Community Edition:  1.4 - 1.5 - 1.6 - 1.7 -1.8 - 1.9</strong></p>
 <p><span style="color: #000000;"><strong>TRY LIVE DEMO HERE:</strong></span></p>
-<span style="color: #007bd4;"><a href="http://demo.magestore.com/banner-slider/" target="blank"> Frontend Demo </a></span>
+<br><span style="color: #007bd4;"><a href="http://demo.magestore.com/banner-slider/" target="blank"> Frontend Demo </a></span></br>
 <br><span style="color: #007bd4;"><a href="http://demo.magestore.com/banner-slider/index.php/admin" target="blank"> Backend Demo </a></span></br>
 
 <h2>New to Magento? Need some help?</h2>

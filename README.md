@@ -12,4 +12,6 @@
 <br><span><a href="http://demo.magestore.com/banner-slider/index.php/admin" target="blank"> Backend Demo </a></span></br>
 
 <h2>New to Magento? Need some help?</h2>
-If you're not sure about the following, you probably need a little help before you start installing the Banner Slider extension:
+If you're not sure about the following, you probably need a little help before you start experiencing the Banner Slider extension:
+<span><a href="https://docs.google.com/viewer?url=https://www.magestore.com/media/productfile/i/n/installation-guide-free.pdf" target="blank"> Installation Guide </a></span>
+<span><a href="https://docs.google.com/viewer?url=https://www.magestore.com/media/productfile/b/a/banner-slider-userguide-v3.0.1.pdf" target="blank"> User Guide </a></span>

@@ -2,7 +2,7 @@ app/code/community/Magestore/Bannerslider                 app/code/community/Mag
 app/design/frontend/base/default/layout/bannerslider.xml  app/design/frontend/base/default/layout/bannerslider.xml
 app/design/frontend/base/default/template/bannerslider/   app/design/frontend/base/default/template/bannerslider/
 app/etc/modules/Magestore_Bannerslider.xml                app/etc/modules/Magestore_Bannerslider.xml
-app/locale/en_US/Magestore_Bannerslider                   app/locale/en_US/Magestore_Bannerslider
+app/locale/en_US/Magestore_Bannerslider.csv               app/locale/en_US/Magestore_Bannerslider.csv
 js/magestore/bannerslider/                                js/magestore/bannerslider/
 media/bannerslider/                                       media/bannerslider/
 skin/adminhtml/default/default/css/magestore              skin/adminhtml/default/default/css/magestore

@@ -147,7 +147,21 @@ class Magestore_Bannerslider_Block_Adminhtml_Banner_Edit_Tab_Form extends Mage_A
             'name' => 'end_time',
             'time' => true
         )); */
-		
+		$fieldset->addField('mobile', 'select', array(
+            'label' => 'Mobile',
+            'class' => 'required-entry',
+            'name' => 'mobile',
+            'values' => array(
+                array(
+                    'value' => 'no',
+                    'label' => 'No',
+                ),
+                array(
+                    'value' => 'yes',
+                    'label' => 'Yes',
+                ),                                
+            ),
+        ));
 		try {
 			$data['start_time']=date('Y-m-d H:i:s',Mage::getModel('core/date')->timestamp(strtotime($data['start_time'])));
 			$data['end_time']=date('Y-m-d H:i:s',Mage::getModel('core/date')->timestamp(strtotime($data['end_time'])));

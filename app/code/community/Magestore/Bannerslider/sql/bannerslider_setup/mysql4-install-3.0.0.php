@@ -71,6 +71,7 @@ CREATE TABLE {$this->getTable('bannerslider_banner')} (
   `tartget` int(11) NULL default '0', 
   `image`	varchar(255) NULL,
   `image_alt`	varchar(255) NULL,
+  `mobile` varchar(255) NULL,
   `width`	float(10) NULL,
   `height`	float(10) NULL,  
   `start_time` datetime NULL,
